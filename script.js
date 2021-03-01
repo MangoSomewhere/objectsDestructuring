@@ -1,31 +1,70 @@
-// object
 
-const user = {
-    //object properties 
-    name : 'Drew' ,
-    age : 26, 
-    married: false,
-    purchases: ['food', 'degree', 'Starcraft 2'],
+const array = [10,20];
 
-    sayName: function( ) {
-        console.log('Hello my name is ' + this.name);
+const arrayToList = (array) => {
+    let list = null;
+    for (const x of array.reverse()) {
+         
+        list= {
+            value: x,
+            rest: list
+
+        }
+         
     }
-    // methods
-};
-/* 
+    return list;
+}
+//let list = JSON.stringify({ value: 10, rest: { value: 20, rest: null } });
+// Console.logging this equals : {"value":10,"rest":{"value":20,"rest":null}}
 
-keyword 'this' :
-references the object
+let list = { value: 10, rest: { value: 20, rest: {value:30, rest:null} } };
 
+console.log(list.rest.rest)
+
+
+
+
+for (let node = list; node; node.rest) {
+    let stringList = JSON.stringify(node);
+    console.log(JSON.parse(stringList).value)
+}
+
+
+/*
+const printChildren = (stringList) => {
+    if(stringList.rest != null) {
+        return true;
+    }
+}
+
+printChildren(list)
+    
+
+
+//console.log(JSON.parse(list).value);  => equates to 10
+
+
+//console.log(JSON.parse(list).rest.value);  //=> equates to : { value: 20, rest: null }
+
+
+//console.log(list.length); => length of list is 44
+
+
+/*
+const listToArray = (list) => {
+    let array = [];
+    if (list.children.length ===0 ) 
+    list.children.forEach
+
+    
+}
+listToArray(list);
 */
 
-user.sayName();
+/*
+list = {
+    value:x,
+    rest:list
 
-const alphabet = ['a', 'b', 'c','d', 'e'];
-const numbers = [1,2,3,4,5];
-
-//destructuring 
-
-const [a,b,c] = alphabet // instead of console.log(alphabet[0])
-const newArray = alphabet.concat(numbers);
-console.log(newArray)
+console.log(arrayToList([array]));
+*/
